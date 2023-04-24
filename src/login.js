@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, TextInput, Button, StyleSheet,Text } from 'react-native';
-import Home from './Home';
+import BarCode from './barcode';
 export default function LoginScreen({navigation}) {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -16,7 +16,7 @@ export default function LoginScreen({navigation}) {
     // Chuyển hướng đến màn hình chính ở đây
     return (
       <View style={styles.container}>
-        <Home/>
+        <BarCode/>
       </View>
     );
   }
@@ -24,13 +24,13 @@ export default function LoginScreen({navigation}) {
   return (
     <View style={styles.container}>
       <TextInput
-        placeholder="Email"
+        placeholder="Email: user@gmail.com"
         value={email}
         onChangeText={setEmail}
         style={styles.input}
       />
       <TextInput
-        placeholder="Password"
+        placeholder="Password:123"
         value={password}
         onChangeText={setPassword}
         secureTextEntry={true}

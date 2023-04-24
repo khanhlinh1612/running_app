@@ -1,29 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { StyleSheet, View, Text, Image,TouchableOpacity,ImageBackground } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import LottieView from 'lottie-react-native';
-import { Text, View, StyleSheet, } from 'react-native';
-import { Camera } from 'expo-camera';
-import * as Print from 'expo-print';
-const render_calendar = (weekday,start,end) => {
-  return (
-    <View style={styles.calendar_list}>
-      <Icon name="calendar" size={20} color="#ffffff" style={{marginRight: 10}} />
-      <Text style={styles.text_list}>
-        {weekday}
-      </Text>
-      <Text style={styles.text_list1}>
-        {start} - {end}
-      </Text>
-    </View>
-  );
-};
-export default Home = function({navigation}){
+
+export default function Home({navigation}){
   return (
     <ImageBackground source={require('./../img/background4.jpg')} style={styles.background}>
         <View style={styles.container}>
       <View style={styles.avatarContainer}>
-        <LottieView source={require('./../assets/avatar.json')} autoPlay loop speed={0.5} style={styles.avatar} />
+        <LottieView source={require('../assets/avatar.json')} autoPlay loop speed={0.5} style={styles.avatar} />
       </View>
       <View style={styles.userInfoContainer}>
         <Text style={styles.userName}>Lumine</Text>
@@ -32,18 +17,12 @@ export default Home = function({navigation}){
           <Text style={styles.scheduleTitle}>This week's schedule</Text>
         </View>
       <View style={styles.scheduleContainer}>
-        
-        
         <View style={styles.scheduleList}>
-          {/* render list of schedules */}
-          {render_calendar('Monday','12:00','13:30')}
-          {render_calendar('Wednesday','09:00','10:30')}
-          {render_calendar('Friday','15:30','17:00')}
-          {render_calendar('Saturday','07:00','08:30')}
-          <TouchableOpacity onPress={() => navigation.navigate('Login')} style={{flexDirection:'row', marginLeft:140, marginBottom:15}}>
-          <Text style={styles.Text_page}>Show my calendar</Text>
+
+          <TouchableOpacity onPress={() => navigation.navigate("BarCode")} style={{flexDirection:'row', marginLeft:140, marginBottom:15}}>
+          <Text style={styles.Text_page}>Scan BarCode</Text>
           <Icon name="arrow-right" size={20} color={'#ffffff'} style={{marginLeft: 10}} />
-      </TouchableOpacity>
+          </TouchableOpacity>
         </View>
       </View>
       
@@ -162,5 +141,3 @@ const styles = StyleSheet.create({
     color:'#fff',
   },
 });
-
-
